@@ -1,0 +1,34 @@
+<!--Suggestions-->
+<article class="p-10 mb-2" [class.fade-out]="isFadingOut" [class.hidden]="isHidden">
+    <div class="flex flex-col gap-6">
+      <div class="flex gap-6 mx-auto">
+        <section class="suggestion" (click)="sharedService.sendSuggest.next('Do you have product Y?')">
+          <h4 class="text-[#4A4A4A] font-[600]">Do you have product Y?</h4>
+          <p class="text-[#9E9E9E]">for a pharmacy company</p>
+        </section>
+
+        <section class="suggestion" (click)="sharedService.sendSuggest.next('How often can I place an order?')">
+          <h4 class="text-[#4A4A4A] font-[600]">
+            How often can I place an order?
+          </h4>
+          <p class="text-[#9E9E9E]">statuses</p>
+        </section>
+      </div>
+
+      <div class="flex gap-6 mx-auto">
+        <section class="suggestion" (click)="sharedService.sendSuggest.next('When did I last place an order?')">
+          <h4 class="text-[#4A4A4A] font-[600]">
+            When did I last place an order?
+          </h4>
+          <p class="text-[#9E9E9E]">for whom</p>
+        </section>
+
+        <section class="suggestion" (click)="sharedService.sendSuggest.next('Which products are my top sellers?')">
+          <h4 class="text-[#4A4A4A] font-[600]">
+            Which products are my top sellers?
+          </h4>
+          <p class="text-[#9E9E9E]">among doctors</p>
+        </section>
+      </div>
+    </div>
+</article>
