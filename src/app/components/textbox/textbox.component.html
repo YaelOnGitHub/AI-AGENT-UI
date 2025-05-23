@@ -1,5 +1,5 @@
 <div class="focus-border w-full h-[50px] p-[12px] pl-[20px] bg-white flex items-center rounded-lg">
-    <textarea  [(ngModel)]="inputText" name="" id="" placeholder="Ask anything" class="resize-none" (keydown.enter)="$event.preventDefault(); handleSend()" maxlength="100"></textarea>
+    <textarea #messageTextarea [(ngModel)]="inputText" name="" id="" placeholder="Ask anything" class="resize-none" (keydown.enter)="$event.preventDefault(); handleSend()" maxlength="100"></textarea>
     <div class="flex items-center justify-between w-[66.5px] mr-2">
       <!--Mic SVG-->
       <svg (click)="toggleMic()" width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -72,12 +72,21 @@ export class TextboxComponent {
     if (this.isMicEnable) {
       this.recognition.stop();
       this.isMicEnable = false;
+      // Clear textarea and input when stopping voice recognition
+      this.inputText = '';
+      this.finalTranscript = '';
+      const textarea = document.querySelector('textarea');
+      if (textarea) {
+        textarea.value = '';
+        textarea.placeholder = 'Ask anything';
+      }
     } else {
       this.inputText = '';
       this.finalTranscript = '';
       const textarea = document.querySelector('textarea');
       if (textarea) {
         textarea.value = '';
+        textarea.placeholder = 'Listening...';
       }
       this.recognition.start();
       this.isMicEnable = true;
@@ -86,6 +95,12 @@ export class TextboxComponent {
 
   handleSend() {
     if (this.inputText.trim()) {
+      // Stop voice recognition if it's active
+      if (this.isMicEnable) {
+        this.recognition.stop();
+        this.isMicEnable = false;
+      }
+
       this.sharedService.sendTextInput.next(this.inputText.trim());
       this.sharedService.sendSuggest.next('');
       this.inputText = '';
@@ -93,6 +108,7 @@ export class TextboxComponent {
       const textarea = document.querySelector('textarea');
       if (textarea) {
         textarea.value = '';
+        textarea.placeholder = 'Ask anything';
         textarea.focus();
       }
     }
