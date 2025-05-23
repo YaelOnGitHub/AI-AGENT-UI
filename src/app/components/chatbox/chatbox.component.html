@@ -13,7 +13,22 @@
                     </div>
                 </div>
 
-                <div class="receive-message-wrap">
+                <div class="receive-message-wrap" *ngIf="isTyping && message === messages[messages.length - 1]">
+                    <div class="flex">
+                        <section class="ai-profile">
+                            <img src="assets/images/AI_Expert_GIF_Logo.gif" alt="">
+                        </section>
+                        <section class="receive-bubble">
+                            <div class="typing-indicator">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="receive-message-wrap" *ngIf="!isTyping || message !== messages[messages.length - 1]">
                     <div class="flex">
                         <section class="ai-profile">
                             <img src="assets/images/AI_Expert_GIF_Logo.gif" alt="">
