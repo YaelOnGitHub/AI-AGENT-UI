@@ -72,12 +72,9 @@ export class TextboxComponent {
     if (this.isMicEnable) {
       this.recognition.stop();
       this.isMicEnable = false;
-      // Clear textarea and input when stopping voice recognition
-      this.inputText = '';
-      this.finalTranscript = '';
+      // Reset placeholder when stopping voice recognition
       const textarea = document.querySelector('textarea');
       if (textarea) {
-        textarea.value = '';
         textarea.placeholder = 'Ask anything';
       }
     } else {
