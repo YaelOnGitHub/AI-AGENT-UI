@@ -8,6 +8,7 @@ export class SharedService {
   sendSuggest = new Subject<string>();
   sendTextInput = new Subject<string>();
   userName = signal('Guest');
+  isTyping = signal(false);
 
   
   constructor() { }

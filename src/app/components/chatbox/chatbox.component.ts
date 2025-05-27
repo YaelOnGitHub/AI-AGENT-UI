@@ -15,7 +15,6 @@ export class ChatboxComponent implements AfterViewChecked {
   isHidden = true;
   isFadeIn = false;
   messages: { text: string, isSuggestion: boolean }[] = [];
-  isTyping: boolean = false;
 
   getInitials(): string {
     const name = this.sharedService.userName();
@@ -50,11 +49,11 @@ export class ChatboxComponent implements AfterViewChecked {
       if (text) {
         this.messages.push({ text, isSuggestion: true });
         this.showChatbox();
-        this.isTyping = true;
+        this.sharedService.isTyping.set(true);
         
         // Show typing indicator for 2 seconds
         setTimeout(() => {
-          this.isTyping = false;
+          this.sharedService.isTyping.set(false);
         }, 2000);
       }
     });
@@ -63,11 +62,11 @@ export class ChatboxComponent implements AfterViewChecked {
       if (text) {
         this.messages.push({ text, isSuggestion: false });
         this.showChatbox();
-        this.isTyping = true;
+        this.sharedService.isTyping.set(true);
         
         // Show typing indicator for 2 seconds
         setTimeout(() => {
-          this.isTyping = false;
+          this.sharedService.isTyping.set(false);
         }, 2000);
       }
     });

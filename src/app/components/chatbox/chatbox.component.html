@@ -13,7 +13,7 @@
                     </div>
                 </div>
 
-                <div class="receive-message-wrap" *ngIf="isTyping && message === messages[messages.length - 1]">
+                <div class="receive-message-wrap" *ngIf="sharedService.isTyping() && message === messages[messages.length - 1]">
                     <div class="flex">
                         <section class="ai-profile">
                             <img src="assets/images/AI_Expert_GIF_Logo.gif" alt="">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
 
-                <div class="receive-message-wrap" *ngIf="!isTyping || message !== messages[messages.length - 1]">
+                <div class="receive-message-wrap" *ngIf="!sharedService.isTyping() || message !== messages[messages.length - 1]">
                     <div class="flex">
                         <section class="ai-profile">
                             <img src="assets/images/AI_Expert_GIF_Logo.gif" alt="">
