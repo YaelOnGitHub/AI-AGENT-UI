@@ -30,17 +30,19 @@ article::-webkit-scrollbar{
 
 .sent-message-wrap{
     animation: send-animation 0.8s ease 0s 1 normal forwards;
-    width: 100%;
+    max-width: 100%;
     height: auto;
+ 
     /* background-color: rgb(255, 195, 127); */
 }
 
 .sent-bubble{
-    width: 80%;
+    max-width: 70%;
     /* background-color: rgb(43, 217, 226); */
     padding: 14px;
     display: flex;
     justify-content: end;
+    
     
     p{
         color: #4A4A4A;
@@ -48,6 +50,8 @@ article::-webkit-scrollbar{
         padding: 9px 14px;
         font-size: 15px;
         border-radius: 6px;
+        word-wrap: break-word;
+        max-width: 100%;
     }
 }
 
